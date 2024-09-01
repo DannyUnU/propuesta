@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fafafa;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            overflow: hidden;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        .button {
+            padding: 12px 24px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        #yesButton {
+            border-color: #4CAF50;
+            color: #4CAF50;
+        }
+        #yesButton:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #noButton {
+            border-color: #f44336;
+            color: #f44336;
+        }
+        #noButton:hover {
+            background-color: #f44336;
+            color: white;
+        }
+        #message {
+            font-size: 1.5em;
+            color: #4CAF50;
+            display: none;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        .background-text {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres ser mi pareja?</h1>
+        <button id="yesButton" class="button">Sí</button>
+        <button id="noButton" class="button">No</button>
+        <div id="message">Te amo</div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const message = document.getElementById('message');
+
+        noButton.addEventListener('mouseover', () => {
+            const x = Math.random() * (window.innerWidth - noButton.clientWidth);
+            const y = Math.random() * (window.innerHeight - noButton.clientHeight);
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        });
+
+        yesButton.addEventListener('click', () => {
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+            message.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
